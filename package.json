@@ -1,30 +1,24 @@
 {
   "scripts": {
-    "start": "npm-run-all --parallel css eleventy browsersync",
-    "eleventy": "eleventy --watch",
+    "start": "npm-run-all --parallel eleventy browsersync",
+    "eleventy": "eleventy --watch --serve",
     "debug": "set DEBUG=* & eleventy",
-    "css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
-    "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production tailwindcss -i src/static/css/tailwind.css -o _site/static/css/style.css",
-    "browsersync": "browser-sync start --server _site --files _site --port 8080 --no-notify --no-open"
+    "browsersync": "browser-sync start --server _site --files _site --port 8080 --no-notify --no-open",
+    "build": "eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "@tailwindcss/typography": "^0.5.19",
     "alpinejs": "^3.15.4",
-    "browser-sync": "^3.0.4",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "js-yaml": "^4.1.1",
     "luxon": "^3.7.2",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^11.0.1",
-    "prismjs": "^1.30.0",
-    "tailwindcss": "^4.1.18"
+    "prismjs": "^1.30.0"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6"
+    "pdf-lib": "^1.17.1",
+    "pdf2pic": "^3.2.0"
   }
 }

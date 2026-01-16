@@ -1,10 +1,10 @@
 ---
 items:
-  - text: Menu One
-    url: "#"
-  - text: Menu Two
-    url: "#"
-  - text: Menu Three
-    url: "#"
-  - text: Blog
-    url: "/blog"
+  - text: About Us
+    url: "/about/"
+  - text: Mass Times
+    url: "/mass-times/"
+  - text: Bulletins
+    url: "/archive/"
+  - text: Homilies
+    url: "/homilies/"

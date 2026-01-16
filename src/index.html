@@ -1,22 +1,72 @@
----
-layout: default
-title: Neat Starter
-path: home
----
+<!DOCTYPE html>
+<html lang="en"  class="page-home">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+  <main>
 
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
-  <h1>
-    Welcome to
-    <strong class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-      {{title}}
-    </strong>
-  </h1>
+    <div class="section hero full-bleed">
+    {% include "./_includes/partials/navbar.html" %}
 
-  <p>
-    <abbr title="netlify cms, eleventy, alpine js & tailwind css">NEAT</abbr>
-    Starter Template. Get Started by editing.
-    <code class="bg-gray-100 text-blue-800 p-1">/index.njk</code>
-  </p>
+      <div class="nickname"><img src="/static/img/beloved.svg" alt=""></div>
+    </div>
 
-  {% include "./_includes/partials/content.html" %}
-</div>
+    <div class="section about">
+      <div class="title">
+        <h1>
+          St. John the Beloved<br />
+          Maronite Catholic Church<br/>
+          Mt. Druitt, NSW, Australia
+        </h1>
+      </div>
+      <div class="blurb">
+        <h2>About Us</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente quibusdam consequuntur mollitia alias nostrum, et ratione architecto ex corrupti necessitatibus, saepe nulla optio quaerat veniam, dolore aliquid! Ratione, unde aliquid.</p>
+        <a href="/about" class="btn learn-more">Learn more</a>
+      </div>
+    </div>
+
+    <div class="section latest">
+      <h2>Latest Updates:</h2>
+        {% set b_pdfs = collections.bulletin | reverse %}
+        {% set homilies = collections.homilies | reverse %}
+        <div class="container">
+          <div class="container-item latest-bulletin">
+            <h3>Bulletin</h3>
+            <a href="/archive/{{ b_pdfs[0].data.file }}">
+              <div class="item bulletin-item">
+                  {% set filePath = "./src/bulletin/" %}
+                  {% set fileName = b_pdfs[0].data.file %}
+                  <span class="week-published">Week {{ b_pdfs[0].date | weekAndYear }}</span>
+                  <img src="{% extractFirstPage [filePath, fileName] %}" alt="" width="210" height="297">
+              </div>
+            </a>
+            <a href="/archive/">See past editions</a>
+          </div>
+          
+          <div class="container-item latest-homily">
+            <h3>Homily</h3>
+            <div class="item homily-item">
+              <a href="/archive/{{ homilies[0].data.file }}">
+                {{ homilies[0].data.title }}
+              </a>
+              {{ homilies[0].date | readableDate }}
+                      by
+                      <a>{{ homilies[0].data.author }}</a>
+            </div>
+                    <a href="/homilies/">See more homilies</a>
+          </div>
+        </div>
+
+        
+    </div>
+  </main>
+      <!-- Netlify Identity Widget -->
+      <!-- Needed only if you are using Netlify Identity feature -->
+      <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>
