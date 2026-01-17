@@ -1,7 +1,31 @@
-<footer class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4">
-    <small class="text-gray-500">Copyright ©
-        {{settings.name}}
-        2020. Made with ❤ by
-        <a href="{{settings.url}}" target="_blank" class="underline">{{settings.author}}</a>
-    </small>
+<footer class="footer">
+    <div class="col-1">
+        <img src="/static/img/footer_logo.png" alt="">
+
+
+    </div>
+    <div class="col-2">
+        <h3>{{settings.name}} <br />Maronite Catholic Church</h3>
+        <p class="address">
+            63 George St, 
+            Mount Druitt 
+            NSW 2770
+        </p>
+    </div>
+    <div class="col-3">
+        <h3>Office Hours:</h3>
+        <p class="hours">
+            Monday - Friday<br/>
+            9 am to 5 pm
+        </p>
+        <p class="phone-and-fax">
+            <span class="phone">Ph: <a href="tel:(02) 9625-8985">(02) 9625-8985</a></span><br />
+            <span class="fax">Fax: <a href="tel:(02) 9625-9779">(02) 9625-9779</a></span>
+        </p>
+        <p class="email">
+            <a href="mailto:office@sjb.org.au">office@sjb.org.au</a>
+        </p>
+
+    </div>
+
 </footer>

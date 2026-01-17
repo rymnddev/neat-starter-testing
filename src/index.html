@@ -26,12 +26,13 @@
       <div class="blurb">
         <h2>About Us</h2>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente quibusdam consequuntur mollitia alias nostrum, et ratione architecto ex corrupti necessitatibus, saepe nulla optio quaerat veniam, dolore aliquid! Ratione, unde aliquid.</p>
-        <a href="/about" class="btn learn-more">Learn more</a>
+        <a href="/about" class="btn learn-more">Learn more<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+</a>
       </div>
     </div>
 
     <div class="section latest">
-      <h2>Latest Updates:</h2>
+      <h2>Latest Updates</h2>
         {% set b_pdfs = collections.bulletin | reverse %}
         {% set homilies = collections.homilies | reverse %}
         <div class="container">
@@ -41,30 +42,52 @@
               <div class="item bulletin-item">
                   {% set filePath = "./src/bulletin/" %}
                   {% set fileName = b_pdfs[0].data.file %}
+                  <img src="{% extractFirstPage [filePath, fileName] %}" alt="">
                   <span class="week-published">Week {{ b_pdfs[0].date | weekAndYear }}</span>
-                  <img src="{% extractFirstPage [filePath, fileName] %}" alt="" width="210" height="297">
               </div>
             </a>
-            <a href="/archive/">See past editions</a>
+            <a href="/archive/">
+              See past editions<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+            </a>
           </div>
           
           <div class="container-item latest-homily">
             <h3>Homily</h3>
             <div class="item homily-item">
-              <a href="/archive/{{ homilies[0].data.file }}">
-                {{ homilies[0].data.title }}
-              </a>
-              {{ homilies[0].date | readableDate }}
-                      by
-                      <a>{{ homilies[0].data.author }}</a>
+              <img src="/static/img/homily.jpg" alt="">
+              <div>
+                
+                <a href="/archive/{{ homilies[0].data.file }}">{{ homilies[0].data.title }}</a>
+                 by {{ homilies[0].data.author }} on {{ homilies[0].date | readableDate }}
+              </div>
             </div>
-                    <a href="/homilies/">See more homilies</a>
+            <a href="/homilies/">
+              See more homilies<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+            </a>
           </div>
         </div>
 
         
     </div>
+
+    <div class="section whats-on">
+      <h2>What's On</h2>
+      <div class="container">
+        {% set events = collections.whatson | reverse %}
+        <ul class="events-list">
+
+          {% for event in events %}
+          <li class="event-item">
+            <img src="{{ event.data.file }}" alt="{{ event.data.title }}">
+          </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+    
   </main>
+  {% include "./_includes/partials/footer.html" %}
       <!-- Netlify Identity Widget -->
       <!-- Needed only if you are using Netlify Identity feature -->
       <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

@@ -121,8 +121,8 @@ module.exports = function (eleventyConfig) {
           saveFilename: name,
           savePath: "./src/static/img/pdf-thumbnails",
           format: "png",
-          width: 210,
-          height: 297
+          width: 630,
+          height: 891
         })
 
         convert(1, {

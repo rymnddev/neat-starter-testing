@@ -2,29 +2,83 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    line-height: 1.25;
 }
 
 :root {
-    --bg: #F4EFE3;
+    /* --bg: #F4EFE3;
     --red: #97010b;
-    --brown: #7C5212;
+    --brown: #7C5212; */
     --radius: 5px;
+
+    --bg: #fafafa;
+    --text: #212121;
+    --accent: #9a0f0d;
+    --highlight: #ce241b;
 }
 
 body {
     background-color: var(--bg);
     font-family: sans-serif;
+    color: var(--text)
 }
 
 main {
     padding: 10px;
     border-radius: var(--radius);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+    svg {
+        transform: translateY(2px);
+        
+    }
+}
+
+a:hover, a:focus {
+    color: var(--highlight)
+
 }
 
 nav {
     display: flex;
     align-items: center;
     gap: 40px;
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: var(--radius);
+    width: calc(100% - 40px);
+    top: 20px;
+    left: 20px;
+    position: fixed;
+    padding: 10px 20px;
+    z-index: 5;
+    .nav-logo {
+        a {
+            font-size: 21px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            img {
+                transform: translateY(2px);
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+    a:hover {
+            color: var(--highlight);
+    }
     .navigation ul {
         display: flex;
         list-style: none;
@@ -44,9 +98,33 @@ nav {
 } */
 
 h1, h2, h3, h4 {
-    color: var(--brown);
+    color: var(--accent);
     text-transform: uppercase;
 
+}
+
+footer {
+    background-color: var(--text);
+    color: var(--bg);
+    padding: 20px;
+    display: flex;
+    margin-top: 40px;
+    gap: 80px;
+    align-items: top;
+        h3 {color:white;}
+
+    a {
+        color: white;
+    }
+    .col-2 {
+        font-size: 18px;
+        padding-top: 20px;
+    }
+    .col-3 {
+        margin-left: auto;
+        margin-right: 80px;
+        padding-top: 20px;
+    }
 }
 
 
@@ -62,7 +140,7 @@ h1, h2, h3, h4 {
         border-radius: var(--radius);
         position: relative;
         overflow: hidden;
-        .nav {
+        /* .nav {
             background-color: white;
             border-radius: var(--radius);
             width: calc(100% - 40px);
@@ -95,7 +173,7 @@ h1, h2, h3, h4 {
                     color: var(--red);
                 text-decoration: underline;
             }
-        }
+        } */
         .nickname {
             position: absolute;
             bottom: 20px;
@@ -112,12 +190,19 @@ h1, h2, h3, h4 {
     .about {
         h1 {
             font-size: 32px;
+            margin-bottom: 10px;;
         }
         margin-top: 40px;
         padding: 10px;
         display: grid;
         gap: 40px;
         grid-template-columns: repeat(2, 1fr);
+        .blurb {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
     }
 
     .latest {
@@ -132,9 +217,60 @@ h1, h2, h3, h4 {
                 border-radius: var(--radius);
                 padding: 20px;
                 background-color: white;
+                h3 {
+                    margin-bottom: 10px;
+                }
                 .bulletin-item {
                     display: flex;
                     flex-direction: column;
+                }
+                .item {
+                    margin-bottom: 10px;
+                    img {
+
+                        width: 100%;
+                        max-height: 250px;
+                        object-fit: cover;
+                        object-position: top;
+                        border-radius: var(--radius);
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .whats-on {
+        margin-top: 40px;
+        padding: 10px;
+        .container {
+            margin-top: 20px;
+            overflow-x: scroll;
+            scrollbar-width: none;
+            position:relative;
+            z-index: 4;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--radius);
+            .events-list {
+                display: flex;
+                gap: 20px;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                margin-right: 20px;
+                .event-item {
+                    height: 340px;
+                    list-style-type: none;
+
+                    img {
+                        height: 100%;
+                        border-radius: var(--radius);
+
+                    }
+
+                }
+                .event-item:last-child img {
+                    padding-right: 20px;
                 }
             }
         }
