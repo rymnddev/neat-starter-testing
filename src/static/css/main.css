@@ -56,6 +56,7 @@ nav {
     position: fixed;
     padding: 10px 20px;
     z-index: 5;
+    justify-content: space-between;
     .nav-logo {
         a {
             font-size: 21px;
@@ -83,6 +84,46 @@ nav {
         display: flex;
         list-style: none;
         gap: 20px;
+    }
+    input {
+        display: none;
+    }
+    label {
+        display: none;
+
+    }
+    @media screen and (max-width: 745px) {
+        label {
+            justify-self: end;
+            display: inline-block;
+            cursor: pointer;
+            transition: transform .2s linear;
+        }
+        .navigation {
+            display: none;
+        }
+        input#menu:checked +.navigation {
+            display: block;
+        }
+        &:has(input#menu:checked) {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 260px 1fr;
+            grid-template-rows: repeat(2, auto);
+            label {
+                grid-area: 1 / 2 / 2 / 3;
+                transform: rotate(90deg);
+            }
+            .navigation {
+                grid-area: 2 / 1 / 3 / 3;
+                ul {
+
+                    flex-direction: column;
+                    gap: 10px;
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 
