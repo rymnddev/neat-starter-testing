@@ -4,12 +4,12 @@ title: Bulletin Archive
 path: archive
 ---
 
-<section class="mt-15">
+<section>
     {% set bulletinlist = collections.bulletin %}
 
     {% for bulletin in bulletinlist | reverse %}
-        <article class="my-8">
-            <h2 class="font-bold text-3xl text-gray-900 mb-2">
+        <div">
+            <h2>
                 <a href="{{ bulletin.data.pdf_file }}">
                     {% if bulletin.data.title %}
                         {{ bulletin.data.title }}
@@ -18,13 +18,13 @@ path: archive
                     {% endif %}
                 </a>
             </h2>
-            <p class="text-base leading-6 text-gray-500 mb-3">
+            <p >
                 <time>
                     {{ bulletin.date | readableDate }}
                 </time>
             </p>
 
 
-        </article>
+        </div>
     {% endfor %}
 </section>

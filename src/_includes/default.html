@@ -16,10 +16,10 @@
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
   </head>
-  <body>
+  <body class="secondary-page">
     {% include "./partials/navbar.html" %}
 
-    {{ content | safe }}
+    <main>{{ content | safe }}</main>
 
     {% include "./partials/footer.html" %}
 
